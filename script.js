@@ -270,4 +270,19 @@ window.onload = function () {
       document.body.removeChild(container);
     }, 3000); // 3 seconds for fade-out
   }, 5000); // 5 seconds after animation starts
+
+  // Add vibration on form submission
+  document.getElementById('myForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission for demonstration
+
+    // Trigger vibration if supported
+    if (navigator.vibrate) {
+      navigator.vibrate([200, 100, 200]); // Vibrate pattern: 200ms on, 100ms off, 200ms on
+    }
+
+    // Optionally, submit the form after vibration
+    setTimeout(() => {
+      event.target.submit();
+    }, 500); // Submit after 500ms
+  });
 };
